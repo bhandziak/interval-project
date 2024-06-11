@@ -39,7 +39,6 @@ Button::~Button()
 const bool Button::isPressed() const
 {
 	return this->activated;
-	//return this->button_state == BTN_PRESS;
 }
 
 void Button::onButtonPress()
@@ -59,13 +58,13 @@ void Button::update(const sf::Vector2f mousePos)
 
 		bool isCurrentlyPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
 		if (isCurrentlyPressed && !wasPressedLastFrame) {
-			// The button has just been pressed
+			// PRESSED
 			this->button_state = BTN_PRESS;
 			this->activated = true;
-			wasPressedLastFrame = true; // Update the state
+			wasPressedLastFrame = true;
 		}
 		else if (!isCurrentlyPressed) {
-			// Reset the state if the mouse button is not pressed
+			// NOT PRESSED
 			wasPressedLastFrame = false;
 		}
 		else {
@@ -73,7 +72,7 @@ void Button::update(const sf::Vector2f mousePos)
 		}
 	}
 	else {
-		// Reset the state if the mouse is not over the button
+		// NOT HOVER
 		wasPressedLastFrame = false;
 	}
 

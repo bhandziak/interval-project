@@ -14,13 +14,11 @@ TextDisplay::TextDisplay(float x, float y,float fontSize ,sf::Color color, const
 
     this->defaultColor = color;
 
-    // Ustaw tekst
     m_text.setFont(m_font);
     m_text.setString(text);
     m_text.setFillColor(color);
     m_text.setCharacterSize(fontSize);
 
-    // Ustaw pozycję tekstu
     m_text.setPosition(x, y);
 }
 

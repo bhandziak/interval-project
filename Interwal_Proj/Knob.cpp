@@ -79,20 +79,21 @@ void Knob::update(const sf::Vector2f mousePos)
 
 		bool isCurrentlyPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
 		if (isCurrentlyPressed && !wasPressedLastFrame) {
-			// The button has just been pressed
+			// PRESSED ONES
 			this->button_state = BTN_PRESS;
 			this->activated = true;
-			wasPressedLastFrame = true; // Update the state
+			wasPressedLastFrame = true; 
 
 			this->m_mouse_last_pos = mousePos.y;
 		}
 		else if (!isCurrentlyPressed) {
-			// Reset the state if the mouse button is not pressed
+			// NOT PRESSED
 			wasPressedLastFrame = false;
 			this->m_mouse_last_pos = 0;
 			//this->value = 0;
 		}
 		else {
+			// ROTATE AND CALC VAL
 			this->button_state = BTN_PRESS;
 			float pos_difference = this->m_mouse_last_pos - mousePos.y;
 
@@ -120,7 +121,7 @@ void Knob::update(const sf::Vector2f mousePos)
 		}
 	}
 	else {
-		// Reset the state if the mouse is not over the button
+		// NOT HOVER
 		wasPressedLastFrame = false;
 	}
 
